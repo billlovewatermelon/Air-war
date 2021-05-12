@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+/* 主界面 */
+#app {
+  width: 513px;
+  height: 800px;
+  margin: 20px auto;
+  position: relative;
+}
+.game-contain {
+  /* display: none; */
+  text-align: center;
+  z-index: 1;
+}
+.game-contain h1 {
+  font-size: 40px;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  line-height: 60px;
+  color: skyblue;
+}
+.game-contain button {
+  display: block;
+  width: 200px;
+  height: 50px;
+  margin-left: 35%;
+  margin-top: 100px;
+  border-radius: 15px;
+  border: none;
+}
+
+.game-contain button:hover {
+  background-color: pink;
+  color: #ffffff;
+  outline: none;
+}
+.game-contain,
+.game-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+}
+.game-back {
+  /* background: url(../img/bg_1.jpg) no-repeat center; */
+  background-image: url(../img/bg_1.jpg);
+  /* background-repeat-x: no-repeat; */
+  /* background-size: contain; */
+  overflow: hidden;
+}
+.score {
+  display: none;
+  font-size: 20px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  color: #ffff;
+  font-weight: bold;
+  z-index: 20;
+}
+#start {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 30;
+}
+#start p {
+  width: 300px;
+  height: 40px;
+  line-height: 20px;
+  margin: 140px auto;
+  color: #fff;
+}
+#start p span {
+  display: block;
+  font-weight: bold;
+  font-size: 22px;
+  text-align: center;
+}
+#start .p1 span {
+  color: red;
+}
+#start .p2 span {
+  color: #ffa80c;
+}
+#start button {
+  font-family: "楷体";
+  font-size: 20px;
+  width: 100px;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+  line-height: 35px;
+  border-radius: 3px;
+  cursor: pointer;
+  border: none;
+  margin: 140px auto;
+  display: block;
+}
+.game-back .aircraft,
+#BiuAll .bullet,
+.EnemyImg ,.blast,.blast2{
+  position: absolute;
+}
+/* 设置层叠关系 */
+.EnemyImg,.aircraft{
+  z-index:20 ;
+}
+
+/* 设置爆炸动画 */
+@keyframes blast {
+  from{ opacity: 1; }
+  to{ opacity: 0; }
+}
+@keyframes blast2{
+  0%{ opacity: 1; }
+  20%{ opacity: 0; }
+  40%{opacity: 1; }
+  60%{opacity: 0;}
+  80%{opacity: 1; }
+  100%{opacity: 0;}
+}
+.game-back .blast{
+  animation: blast .8s;
+  /* 把动画停在最后一帧 */
+  animation-fill-mode: forwards;
+}
+.game-back .blast2{
+  animation: blast2 2s;
+  animation-fill-mode: forwards;
+}
